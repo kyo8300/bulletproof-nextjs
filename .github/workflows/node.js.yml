@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-      - run: yarn ci
+      - run: yarn install --frozen-lockfile
       - run: yarn build --if-present
       - run: yarn test
 
@@ -36,7 +36,7 @@ jobs:
         with:
           node-version: '16.x'
       - name: Install dependencies
-        run: yarn ci
+        run: yarn install --frozen-lockfile
       - name: Install Playwright
         run: npx playwright install --with-deps
       - name: Run Jest
