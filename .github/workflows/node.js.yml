@@ -24,21 +24,22 @@ jobs:
       - run: yarn install --frozen-lockfile
       - run: yarn build
 
-  test:
-    timeout-minutes: 60
+  # There is no test files now.
+  # test:
+  #   timeout-minutes: 60
 
-    runs-on: ubuntu-latest
+  #   runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '16.x'
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-      - name: Install Playwright
-        run: npx playwright install --with-deps
-      - name: Run Jest
-        run: yarn test
-      - name: Run Playwright tests
-        run: yarn test-e2e
+  #   steps:
+  #     - uses: actions/checkout@v2
+  #     - uses: actions/setup-node@v2
+  #       with:
+  #         node-version: '16.x'
+  #     - name: Install dependencies
+  #       run: yarn install --frozen-lockfile
+  #     - name: Install Playwright
+  #       run: npx playwright install --with-deps
+  #     - name: Run Jest
+  #       run: yarn test
+  #     - name: Run Playwright tests
+  #       run: yarn test-e2e
