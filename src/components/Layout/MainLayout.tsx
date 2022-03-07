@@ -11,7 +11,7 @@ const Links = [
 ];
 
 const NavBar = () => (
-  <nav className="hidden list-none phone:block">
+  <nav className="hidden list-none tablet:block">
     <ul className="text-center bg-[#323232] h-[36px] leading-9 flex items-center justify-center">
       {Links.map(([title, url]) => (
         <li key={title} className="text-white px-[10px] text-[10px]">
@@ -34,7 +34,7 @@ const MobileHamburgerMenu = ({
   setHamburgerOpen,
 }: MobileHamburgerMenuProps) => {
   return (
-    <div className="phone:hidden">
+    <div className="tablet:hidden">
       <Hamburger
         toggled={hamburgerOpen}
         toggle={setHamburgerOpen}
@@ -69,7 +69,7 @@ const LogoHeader = () => {
         <Link href="/">
           <a className="text-4xl block">AOTY</a>
         </Link>
-        <div className="hidden phone:block">Search</div>
+        <div className="hidden tablet:block">Search</div>
         <MobileHamburgerMenu
           hamburgerOpen={hamburgerOpen}
           setHamburgerOpen={setHamburgerOpen}

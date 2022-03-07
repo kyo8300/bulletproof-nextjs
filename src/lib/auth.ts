@@ -24,7 +24,8 @@ export const getAccessToken = async () => {
     const { access_token } = (await res.json()) as AccessToken
     return access_token
   } catch (err) {
-    console.log('cannot fetch accessToken due to some reasons')
-    console.log('err:', err)
+    console.error('cannot fetch accessToken due to some reasons')
+    console.error('err:', err)
+    return ''
   }
 }

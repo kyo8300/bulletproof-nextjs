@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { MainLayout } from "@/components/Layout";
+import { NewReleasesList } from "@/features/new-releases";
 
 const Home: NextPage = () => {
   return (
@@ -18,6 +19,7 @@ const Home: NextPage = () => {
         />
       </Head>
       <MainLayout />
+      <NewReleasesList />
     </div>
   );
 };
