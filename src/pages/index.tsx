@@ -9,13 +9,13 @@ const Home: NextPage = () => {
       <Head>
         <title>Music Reviews, Ratings, Charts, News | Album of The Year</title>
         <meta
-          name="description"
-          content="Top music of the year. Featuring album reviews, ratings, charts, year end lists and more."
+          name='description'
+          content='Top music of the year. Featuring album reviews, ratings, charts, year end lists and more.'
         />
-        <meta property="og:type" content="website" />
+        <meta property='og:type' content='website' />
         <meta
-          property="og:title"
-          content="Album of The Year - Music Reviews, Ratings, Charts, News"
+          property='og:title'
+          content='Album of The Year - Music Reviews, Ratings, Charts, News'
         />
       </Head>
       <MainLayout />
