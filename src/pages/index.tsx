@@ -1,9 +1,17 @@
-import type { NextPage } from "next";
+import type { NextPage, GetStaticProps } from "next";
+import { SWRConfig } from "swr";
 import Head from "next/head";
 import { MainLayout } from "@/components/Layout";
-import { NewReleasesList } from "@/features/new-releases";
+import { NewReleasesList, getNewReleases } from "@/features/new-releases";
+import { ENDPOINT_NEW_RELEASES } from "@/config";
 
-const Home: NextPage = () => {
+type Props = {
+  fallback: {
+    [ENDPOINT_NEW_RELEASES]: SpotifyApi.ListOfNewReleasesResponse;
+  };
+};
+
+const Home: NextPage<Props> = ({ fallback }) => {
   return (
     <div>
       <Head>
@@ -18,10 +26,24 @@ const Home: NextPage = () => {
           content='Album of The Year - Music Reviews, Ratings, Charts, News'
         />
       </Head>
-      <MainLayout />
-      <NewReleasesList />
+      <SWRConfig value={{ fallback }}>
+        <MainLayout />
+        <NewReleasesList />
+      </SWRConfig>
     </div>
   );
 };
 
 export default Home;
+
+export const getStaticProps: GetStaticProps = async () => {
+  const data = await getNewReleases();
+
+  return {
+    props: {
+      fallback: {
+        [ENDPOINT_NEW_RELEASES]: data,
+      },
+    },
+  };
+};

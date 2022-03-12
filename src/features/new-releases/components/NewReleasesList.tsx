@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import useNewReleases from "../api/useNewReleases";
+import { useNewReleases } from "../api/getNewReleases";
 
 export const NewReleasesList = () => {
   const { data, error } = useNewReleases();
@@ -26,7 +26,6 @@ export const NewReleasesList = () => {
               desktop:mb-[15px] desktop:w-1/6 desktop:px-[1%] desktop:pt-[10px] desktop:pb-[15px]
             '
           >
-            {/* use Image component */}
             <div className='relative'>
               <Image
                 src={album.images[1].url}
