@@ -24,7 +24,7 @@ jobs:
       - run: yarn install --frozen-lockfile
       - run: yarn build
       - name: Eslint
-      - run: yarn lint
+        run: yarn lint
 
   # There is no test files now.
   # test:
