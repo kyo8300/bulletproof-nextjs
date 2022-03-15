@@ -11,10 +11,10 @@ const Links = [
 ];
 
 const NavBar = () => (
-  <nav className="hidden list-none tablet:block">
-    <ul className="text-center bg-[#323232] h-[36px] leading-9 flex items-center justify-center">
+  <nav className='hidden list-none tablet:block'>
+    <ul className='flex h-[36px] items-center justify-center bg-[#323232] text-center leading-9'>
       {Links.map(([title, url]) => (
-        <li key={title} className="text-white px-[10px] text-[10px]">
+        <li key={title} className='px-[10px] text-[10px] text-white'>
           <Link href={url}>
             <a>{title}</a>
           </Link>
@@ -34,20 +34,20 @@ const MobileHamburgerMenu = ({
   setHamburgerOpen,
 }: MobileHamburgerMenuProps) => {
   return (
-    <div className="tablet:hidden">
+    <div className='tablet:hidden'>
       <Hamburger
         toggled={hamburgerOpen}
         toggle={setHamburgerOpen}
-        label="Nav menu"
+        label='Nav menu'
       />
       {hamburgerOpen && (
-        <div className="fixed top-[78px] left-0 w-full h-full z-30 bg-[#323232]">
-          <div className="bg-white h-[62.5px] py-[15px] px-5">Search</div>
-          <ul className="flex justify-center flex-col px-5">
+        <div className='fixed top-[78px] left-0 z-30 h-full w-full bg-[#323232]'>
+          <div className='h-[62.5px] bg-white py-[15px] px-5'>Search</div>
+          <ul className='flex flex-col justify-center px-5'>
             {Links.map(([title, url]) => (
               <li
                 key={title}
-                className="h-12 text-white text-xs py-[5px] border-b border-[#484848] flex items-center"
+                className='flex h-12 items-center border-b border-[#484848] py-[5px] text-xs text-white'
               >
                 <Link href={url}>
                   <a>{title}</a>
@@ -64,12 +64,12 @@ const MobileHamburgerMenu = ({
 const LogoHeader = () => {
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
   return (
-    <header className="py-[15px] px-5">
-      <div className="flex items-center justify-between">
-        <Link href="/">
-          <a className="text-4xl block">AOTY</a>
+    <header className='py-[15px] px-5'>
+      <div className='flex items-center justify-between'>
+        <Link href='/'>
+          <a className='block text-4xl'>AOTY</a>
         </Link>
-        <div className="hidden tablet:block">Search</div>
+        <div className='hidden tablet:block'>Search</div>
         <MobileHamburgerMenu
           hamburgerOpen={hamburgerOpen}
           setHamburgerOpen={setHamburgerOpen}
@@ -79,11 +79,12 @@ const LogoHeader = () => {
   );
 };
 
-export const MainLayout = () => {
+export const MainLayout: React.FC = ({ children }) => {
   return (
     <>
       <LogoHeader />
       <NavBar />
+      {children}
     </>
   );
 };

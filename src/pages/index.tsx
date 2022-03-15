@@ -1,7 +1,6 @@
 import type { NextPage, GetStaticProps } from "next";
 import { SWRConfig } from "swr";
 import Head from "next/head";
-import { MainLayout } from "@/components/Layout";
 import { NewReleasesList, getNewReleases } from "@/features/new-releases";
 import { ENDPOINT_NEW_RELEASES } from "@/config";
 
@@ -27,7 +26,6 @@ const Home: NextPage<Props> = ({ fallback }) => {
         />
       </Head>
       <SWRConfig value={{ fallback }}>
-        <MainLayout />
         <NewReleasesList />
       </SWRConfig>
     </div>
