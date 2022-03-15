@@ -20,9 +20,11 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'yarn'
+          cache: "yarn"
       - run: yarn install --frozen-lockfile
       - run: yarn build
+      - name: Eslint
+      - run: yarn lint
 
   # There is no test files now.
   # test:
